@@ -1,7 +1,8 @@
 {
   "name": "@virtualboardgame/codenames",
+  "version": "1.0.0",
   "dependencies": {
-    
+    "@virtualboardgame/core": "^1.0.0"
   },
   "devDependencies": {
 
