@@ -43,3 +43,5 @@ Start the webapp local server.
 ```bash
 yarn serve
 ```
+
+Browse to [http://localhost:3000/](http://localhost:3000/)
