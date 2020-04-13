@@ -17,22 +17,29 @@ Yarn:
 npm install -g yarn
 ```
 
-### Install
+#### Install
 
 Run npm install in the root of the repo.
 
 ```bash
 cd virtualboardgames
-npm install
+yarn
 ```
 
-### Start build
+### Build
+
+#### Start builder
+
+Start the game builder.
 
 ```bash
-npm run build
+yarn start
 ```
 
-### Start the server
+#### Serve Webapp
 
+Start the webapp local server.
 
-
+```bash
+yarn serve
+```
