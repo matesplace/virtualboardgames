@@ -1,0 +1,52 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+handlers:
+- url: /
+  secure: always
+  static_files: build/index.html
+  upload: build/index.html
+- url: /(.*.png)
+  secure: always
+  static_files: build/\1
+  upload: build/(.*)
+- url: /(.*.jpg)
+  secure: always
+  static_files: build/\1
+  upload: build/(.*)
+- url: /(.*.svg)
+  secure: always
+  static_files: build/\1
+  upload: build/(.*)
+- url: /(.*.json)
+  secure: always
+  static_files: build/\1
+  upload: build/(.*)
+- url: /(.*.js)
+  secure: always
+  static_files: build/\1
+  upload: build/(.*)
+- url: /(.*.txt)
+  secure: always
+  static_files: build/\1
+  upload: build/(.*)
+- url: /(.*.ico)
+  secure: always
+  static_files: build/\1
+  upload: build/(.*)
+- url: /images/(.*)
+  secure: always
+  static_files: build/images/\1
+  upload: build/images/(.*)
+- url: /games/(.*)
+  secure: always
+  static_files: build/games/\1
+  upload: build/games/(.*)
+- url: /static/(.*)
+  secure: always
+  static_files: build/static/\1
+  upload: build/static/(.*)
+- url: /.*
+  secure: always
+  static_files: build/index.html
+  upload: build/index.html

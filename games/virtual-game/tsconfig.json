@@ -21,5 +21,16 @@
   },
   "include": [
     "src"
+  ],
+  "references": [
+    {
+      "path": "../virtual-game-core"
+    },
+    {
+      "path": "../virtual-codenames"
+    },
+    {
+      "path": "../virtual-catan"
+    }
   ]
 }

@@ -1,15 +1,23 @@
 {
-  "name": "virtualboardgames",
-  "version": "1.0.0",
+  "name": "virtualboardgame",
   "private": true,
+  "version": "1.0.0",
   "devDependencies": {
-    "lerna": "^3.20.2"
-  },
+    "lerna": "^3.20.2",
+    "typescript": "^3.8.3"
+	},
+	"workspaces": [
+    "games/*"
+  ],
   "scripts": {
-    "start": "cd games/virtual-game-site && yarn start",
-    "build": "lerna run build",
+    "start": "lerna run --parallel --stream watch",
+    "serve": "lerna run start --scope @virtualboardgame/site",
+    "deploy": "lerna run deploy --scope @virtualboardgame/site",
     "postinstall": "yarn run boot",
-    "bump": "lerna version",
-    "boot": "lerna bootstrap"
+    "bump": "lerna version patch",
+    "boot": "lerna bootstrap",
+    "clean": "lerna run clean",
+    "build": "lerna run build",
+    "pub": "lerna publish"
   }
 }

@@ -1,0 +1,62 @@
+{
+  "name": "@virtualboardgame/site",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.9.7",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.47",
+    "@virtualboardgame/catan": "^1.0.0",
+    "@virtualboardgame/codenames": "^1.0.0",
+    "@virtualboardgame/core": "1.0.0",
+    "@virtualboardgame/scattergories": "^1.0.0",
+    "clsx": "^1.1.0",
+    "firebase": "^7.12.0",
+    "hashids": "^2.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "sharp-cli": "^1.13.1",
+    "typescript": "~3.7.2",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@storybook/react": "^5.3.17",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/hashids": "^1.0.30",
+    "@types/uuid": "^7.0.2"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "react-scripts build; npm run gcloud:deploy",
+    "gcloud:deploy": "gcloud app deploy --promote --version dev --project=virtualboardgame --quiet",
+    "gcloud:deploy:prod": "gcloud app deploy --promote --version prod --project=virtualboardgame --quiet --verbosity=info"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

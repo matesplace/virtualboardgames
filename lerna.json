@@ -3,5 +3,11 @@
     "games/*"
   ],
   "version": "1.0.0",
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "command": {
+    "add": {
+      "ignore": "@virtualboardgame/site"
+    }
+  },
+  "useWorkspaces": true
 }

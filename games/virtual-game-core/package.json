@@ -1,12 +1,13 @@
 {
   "name": "@virtualboardgame/core",
   "version": "1.0.0",
+  "license": "MIT",
   "private": false,
+  "main": "dist/index",
+  "types": "dist/index",
   "files": [
-    "lib"
+    "dist"
   ],
-  "main": "./lib/index.js",
-  "types": "./lib/types.d.ts",
   "devDependencies": {
     "@material-ui/core": "^4.9.7",
     "@material-ui/icons": "^4.9.1",
@@ -17,10 +18,13 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/uuid": "^7.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "uuid": "^7.0.3",
+    "@storybook/react": "^5.3.17"
   },
   "peerDependencies": {
     "@material-ui/core": "> 4.9.7",
@@ -29,6 +33,10 @@
     "react-dom": ">= 16.8.0 < 17"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
   }
 }

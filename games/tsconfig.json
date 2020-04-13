@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+      { "path": "virtual-game-core" },
+      { "path": "virtual-catan" },
+      { "path": "virtual-codenames" }
+  ]
+}

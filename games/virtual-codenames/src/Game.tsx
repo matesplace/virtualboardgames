@@ -1,19 +1,26 @@
 import React from 'react';
 
-import Word from './components/Word';
-import { Layout } from '@virtualboardgame/core';
+import { Layout, GameProps, withGame } from '@virtualboardgame/core';
+import { CodeNamesGameState, newGame } from './state';
+import WordGrid from './components/WordGrid';
+import ToolbarState from './components/ToolbarState';
 
-function CodeNames() {
+
+function Codenames(props: GameProps<CodeNamesGameState>) {
+  const [spy, setSpy] = React.useState(false);
+  const { ...rest } = props;
+
+  React.useEffect(() => {
+    setSpy(false);
+  }, [props.state.id]);
+
   return (
-    <Layout>
-      <header className="App-header">
-        <p>
-          Code Names
-        </p>
-        <Word word="Hello"/>
-      </header>
-    </Layout>
-  );
+    <div>
+      <Layout>
+        <ToolbarState {...rest} showAll={spy!} setRole={(spy) => setSpy(spy)} />
+        <WordGrid {...rest} showAll={spy!} />
+      </Layout>
+    </div>);
 }
 
-export const Game = CodeNames;
+export const App = withGame(Codenames, newGame);
