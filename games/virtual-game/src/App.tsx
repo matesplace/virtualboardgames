@@ -6,7 +6,7 @@ import * as ROUTES from './constants/routes';
 
 import Create from './containers/create/Create';
 import Game from './containers/game/Game';
-import Home from './containers/home/Home';
+// import Home from './containers/home/Home';
 
 function Main() {
   return (
@@ -17,8 +17,6 @@ function Main() {
 
           <Route exact path={ROUTES.CREATE} component={Create} />
 
-          {/* <Route exact path={ROUTES.GAMEWITHROLE} component={Game} /> */}
-          
           <Route exact path={ROUTES.GAME} component={Game} />
           {/* <Route component={Error} /> */}
         </Switch>

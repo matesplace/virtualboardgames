@@ -21,7 +21,7 @@ export interface GameProps<T extends GameState> extends WithoutGameProps<T> {
   newGameFn: () => T;
 }
 
-function GameComponent<T extends GameState>(props: GameProps<T>) {
+export function GameComponent<T extends GameState>(props: GameProps<T>) {
   const { newGame, game, state, children } = props;
 
   const createNewGameState = () => {

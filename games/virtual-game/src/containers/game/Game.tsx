@@ -5,6 +5,7 @@ import { withFirebase, FirebaseProps } from '../../components/Firebase';
 import Button from '@material-ui/core/Button';
 
 import { GameState } from '@virtualboardgame/core';
+import { games } from '../../constants/games';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
@@ -23,11 +24,7 @@ import BackIcon from '@material-ui/icons/ArrowBack';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShareIcon from '@material-ui/icons/ScreenShare';
 
-import { App as Catan } from '@virtualboardgame/catan';
-import { App as Codenames } from '@virtualboardgame/codenames';
-import { App as Scattergories } from '@virtualboardgame/scattergories';
-
-import Games, { GameEntry } from './Games';
+import Games from './Games';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -63,21 +60,6 @@ interface GameComponentState {
   newGame: boolean;
   gameState: GameState;
 }
-
-const games: GameEntry[] = [
-  {
-    id: 'catan',
-    name: 'Catan',
-  },
-  {
-    id: 'codenames',
-    name: 'CODENAMES'
-  },
-  {
-    id: 'scattergories',
-    name: 'Scattergories'
-  }
-];
 
 function GameComponent(props: GameProps) {
   const classes = useStyles();
@@ -184,9 +166,10 @@ function GameComponent(props: GameProps) {
         </Toolbar>
       </AppBar>
       <div className={classes.main}>
-        {game === 'catan' && <Catan game={'catan'} id={id!} newGame={newGame} state={gameState as any} setState={setGameState} />}
+        {games.map(g => game === g.id && <g.app game={g.id} id={id!} newGame={newGame} state={gameState as any} setState={setGameState}/>)}
+        {/* {game === 'catan' && <Catan game={'catan'} id={id!} newGame={newGame}  />}
         {game === 'codenames' && <Codenames game={'codenames'} id={id!} newGame={newGame} state={gameState as any} setState={setGameState} />}
-        {game === 'scattergories' && <Scattergories game={'scattergories'} id={id!} newGame={newGame} state={gameState as any} setState={setGameState} />}
+        {game === 'scattergories' && <Scattergories game={'scattergories'} id={id!} newGame={newGame} state={gameState as any} setState={setGameState} />} */}
       </div>
       <Dialog fullScreen open={chooseGame} onClose={handleClose}>
         <AppBar position="static" className={classes.appBar}>

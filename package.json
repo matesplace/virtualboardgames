@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "start": "lerna run --parallel --stream watch",
-    "serve": "lerna run start --scope @virtualboardgame/site",
+    "serve": "cd games/virtual-game && yarn start",
     "deploy": "lerna run deploy --scope @virtualboardgame/site",
     "postinstall": "yarn run boot",
     "bump": "lerna version patch",
