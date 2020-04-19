@@ -75,9 +75,11 @@ export default function UserChooser(props: UserChooserProps) {
           onChange={(e: React.MouseEvent<HTMLElement>, value: any) => setCurrent(value)}>
           {colorMap.map((color, index) => (
             <ToggleButton value={index} key={`color_chooser_${index}`}>
-              <Badge badgeContent={board.getTotals(index)} color="secondary">
-                {index == current && <Person style={{ color: color }} />}
-                {index != current && <PersonOutline style={{ color: color }} />}
+              <Badge badgeContent={board.longestPlayer == index ? 'L' : 0} anchorOrigin={{vertical: 'bottom', horizontal: 'right'}} variant="dot" color="secondary">
+                <Badge badgeContent={board.getTotals(index)} color="secondary">
+                  {index == current && <Person style={{ color: color }} />}
+                  {index != current && <PersonOutline style={{ color: color }} />}
+                </Badge>
               </Badge>
             </ToggleButton>
           ))}

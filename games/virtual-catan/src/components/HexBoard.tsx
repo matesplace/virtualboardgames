@@ -76,14 +76,14 @@ export default function HexBoard(props: HexBoardProps) {
     let longestRoad = longestPaths[0][1];
     longestPaths = longestPaths.filter(p => p[1] == longestRoad);
 
-    if (longestPaths.length == 1) {
-      newState.longestRoad = longestPaths[0][1];
-      newState.longestPlayer = longestPaths[0][0];
-    } else if (longestPaths.length > 1) {
-      // Competing longest paths.
-      console.log(longestPaths);
-
-
+    if (longestRoad >= 5) {
+      if (longestPaths.length == 1) {
+        newState.longestRoad = longestPaths[0][1];
+        newState.longestPlayer = longestPaths[0][0];
+      } else if (longestPaths.length > 1) {
+        // Competing longest paths.
+        console.log(longestPaths);
+      }
     }
     props.setState(newState, deleted);
   }

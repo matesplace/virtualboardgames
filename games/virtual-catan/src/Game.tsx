@@ -2,7 +2,7 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import { ScrollLayout, withGame, GameState, GameProps, User } from '@virtualboardgame/core';
+import { AbsoluteLayout, withGame, GameState, GameProps, User } from '@virtualboardgame/core';
 
 import { CatanGameState, newGame, players } from './state';
 
@@ -74,13 +74,13 @@ function Catan(props: GameProps<CatanGameState>) {
 
   onGameStateUpdate(props.state);
 
-  return (<ScrollLayout>
+  return (<AbsoluteLayout>
     <UserChooser board={board} robberOn={robberOn} current={currentPlayerIndex}
       setCurrent={(index) => setLocalState({ ...localState, currentPlayerIndex: index })}
       setRobber={(robberOn) => setLocalState({ ...localState, robberOn })} />
     <HexBoard {...rest} currentUser={currentPlayer} robberOn={robberOn} board={board}
       resetRobber={() => setLocalState({ ...localState, robberOn: false })} />
-  </ScrollLayout>);
+  </AbsoluteLayout>);
 }
 
 export const App = withGame(Catan, newGame);
